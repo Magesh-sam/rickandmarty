@@ -26,6 +26,8 @@ function App() {
         src="../../rickandmorty.png"
         alt="Rick and Morty Title"
         className="h-20 w-auto mx-auto"
+        width={"auto"}
+        height={80}
       />
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto gap-3 mt-5">
         {characters.map((character: CharacterProps) => {

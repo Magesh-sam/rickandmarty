@@ -1,7 +1,7 @@
 import { CharacterProps } from "../lib/types";
 
 function Character({ character }: { character: CharacterProps }) {
-  const { name, image, status, species } = character;
+  const { name, image, status, species, id } = character;
   const statusColor =
     status === "Alive"
       ? "bg-green-500"
@@ -28,7 +28,9 @@ function Character({ character }: { character: CharacterProps }) {
         width={300}
         height={300}
         className="rounded-lg shadow-lg"
+        loading={id > 8 ? "lazy" : "eager"}
       />
+      
     </div>
   );
 }

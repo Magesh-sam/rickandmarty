@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import BackToTop from "../components/BackToTop";
 const fetchCharacters = (pageNumber: number) => {
   return axios.get(
-    `https://rickandmortyapi.com/api/character?page=${pageNumber}`
+    `https://rickandmortyapi.com/api/character?page=${pageNumber}`,
   );
 };
 function Characters() {
@@ -34,6 +34,8 @@ function Characters() {
           src="../../rickandmorty.png"
           alt="Rick and Morty Title"
           className="h-20 w-auto mx-auto"
+          width={"auto"}
+          height={80}
         />
       </Link>
       <div className="flex items-center justify-evenly">
@@ -53,7 +55,11 @@ function Characters() {
       <section className="flex justify-center items-center gap-5 my-5 ">
         <div className="flex gap-1">
           <span>page</span>
+          <label htmlFor="pageNumber" className="sr-only" hidden>
+            Page Number
+          </label>
           <input
+            id="pageNumber"
             type="number"
             value={pageNumber}
             onChange={(e) => setPageNumber(+e.target.value)}
@@ -67,7 +73,7 @@ function Characters() {
           aria-label="go to first page"
           className={`${
             data?.info.prev === null ? " cursor-not-allowed " : " "
-          } bg-blue-500 text-white p-2 rounded-lg`}
+          } bg-blue-600 text-white p-2 rounded-lg`}
           onClick={() => setPageNumber(1)}
         >
           <svg
@@ -89,7 +95,7 @@ function Characters() {
         <button
           onClick={() => setPageNumber(pageNumber - 1)}
           disabled={data?.info.previous === null || pageNumber === 1}
-          className={`bg-blue-500 text-white p-2 rounded-lg flex items-center ${
+          className={`bg-blue-600 text-white p-2 rounded-lg flex items-center ${
             data?.info.prev === null ? "cursor-not-allowed " : " "
           }`}
         >
@@ -113,7 +119,7 @@ function Characters() {
         <button
           onClick={() => setPageNumber(pageNumber + 1)}
           disabled={data?.info.next === null}
-          className={`bg-blue-500 text-white p-2 rounded-lg flex items-center ${
+          className={`bg-blue-600 text-white p-2 rounded-lg flex items-center ${
             data?.info.next === null ? " cursor-not-allowed " : " "
           } `}
         >
@@ -137,7 +143,7 @@ function Characters() {
         <button
           className={`${
             data?.info.next === null ? " cursor-not-allowed " : " "
-          } bg-blue-500 text-white p-2 rounded-lg`}
+          } bg-blue-600 text-white p-2 rounded-lg`}
           aria-label="go to last page"
           onClick={() => setPageNumber(data?.info.pages)}
         >
