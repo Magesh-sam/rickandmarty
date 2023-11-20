@@ -27,7 +27,7 @@ function Character({ character }: { character: CharacterProps }) {
         alt={name}
         width={300}
         height={300}
-        className="rounded-lg"
+        className="rounded-lg shadow-lg"
       />
     </div>
   );
