@@ -35,7 +35,7 @@ function App() {
         })}
       </section>
       <div className="flex justify-center items-center mt-5">
-        <Link to="/characters" className="codepen-button">
+        <Link to="/characters" className="codepen-button ">
           <span>Discover Characters!</span>
         </Link>
       </div>

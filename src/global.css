@@ -20,6 +20,8 @@
   overflow: hidden;
   padding: 3px;
   isolation: isolate;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .codepen-button::before {

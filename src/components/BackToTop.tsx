@@ -20,7 +20,7 @@ function BackToTop() {
   }, [isButtonVisible]);
   return (
     <button
-      className={`fixed bottom-5 right-5 bg-slate-800 text-white p-2 rounded-full ${
+      className={`fixed bottom-[75px] right-5 bg-slate-800 text-white p-2 rounded-full ${
         isButtonVisible ? "block" : "hidden"
       }`}
       aria-label="Back to top button"

@@ -28,9 +28,8 @@ function Character({ character }: { character: CharacterProps }) {
         width={300}
         height={300}
         className="rounded-lg shadow-lg"
-        loading={id > 8 ? "lazy" : "eager"}
+        loading={id > 9 ? "lazy" : "eager"}
       />
-      
     </div>
   );
 }

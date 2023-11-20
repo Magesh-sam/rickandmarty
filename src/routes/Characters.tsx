@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import BackToTop from "../components/BackToTop";
 const fetchCharacters = (pageNumber: number) => {
   return axios.get(
-    `https://rickandmortyapi.com/api/character?page=${pageNumber}`,
+    `https://rickandmortyapi.com/api/character?page=${pageNumber}`
   );
 };
 function Characters() {
@@ -52,7 +52,7 @@ function Characters() {
         })}
       </section>
 
-      <section className="flex justify-center items-center gap-5 my-5 ">
+      <section className="flex flex-col xs:flex-row justify-center items-center gap-5 my-5 ">
         <div className="flex gap-1">
           <span>page</span>
           <label htmlFor="pageNumber" className="sr-only" hidden>
@@ -69,100 +69,102 @@ function Characters() {
           />
           of {data?.info.pages}
         </div>
-        <button
-          aria-label="go to first page"
-          className={`${
-            data?.info.prev === null ? " cursor-not-allowed " : " "
-          } bg-blue-600 text-white p-2 rounded-lg`}
-          onClick={() => setPageNumber(1)}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            width={24}
-            height={24}
+        <div className="flex gap-2">
+          <button
+            aria-label="go to first page"
+            className={`${
+              data?.info.prev === null ? " cursor-not-allowed " : " "
+            } bg-blue-600 text-white p-2 rounded-lg`}
+            onClick={() => setPageNumber(1)}
           >
-            <path
-              stroke="#FFF"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M18 17l-5-5 5-5m-7 10l-5-5 5-5"
-            ></path>
-          </svg>
-        </button>
-        <button
-          onClick={() => setPageNumber(pageNumber - 1)}
-          disabled={data?.info.previous === null || pageNumber === 1}
-          className={`bg-blue-600 text-white p-2 rounded-lg flex items-center ${
-            data?.info.prev === null ? "cursor-not-allowed " : " "
-          }`}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width={24}
-            height={24}
-            fill="none"
-            viewBox="0 0 24 24"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              width={24}
+              height={24}
+            >
+              <path
+                stroke="#FFF"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M18 17l-5-5 5-5m-7 10l-5-5 5-5"
+              ></path>
+            </svg>
+          </button>
+          <button
+            onClick={() => setPageNumber(pageNumber - 1)}
+            disabled={data?.info.previous === null || pageNumber === 1}
+            className={`bg-blue-600 text-white p-2 rounded-lg flex items-center ${
+              data?.info.prev === null ? "cursor-not-allowed " : " "
+            }`}
           >
-            <path
-              stroke="#FFF"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="4"
-              d="M15 6l-6 6 6 6"
-            ></path>
-          </svg>
-          Previous
-        </button>
-        <button
-          onClick={() => setPageNumber(pageNumber + 1)}
-          disabled={data?.info.next === null}
-          className={`bg-blue-600 text-white p-2 rounded-lg flex items-center ${
-            data?.info.next === null ? " cursor-not-allowed " : " "
-          } `}
-        >
-          Next{" "}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            width={24}
-            height={24}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="#FFF"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="4"
+                d="M15 6l-6 6 6 6"
+              ></path>
+            </svg>
+            Previous
+          </button>
+          <button
+            onClick={() => setPageNumber(pageNumber + 1)}
+            disabled={data?.info.next === null}
+            className={`bg-blue-600 text-white p-2 rounded-lg flex items-center ${
+              data?.info.next === null ? " cursor-not-allowed " : " "
+            } `}
           >
-            <path
-              stroke="#FFF"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="4"
-              d="M9 6l6 6-6 6"
-            ></path>
-          </svg>{" "}
-        </button>
-        <button
-          className={`${
-            data?.info.next === null ? " cursor-not-allowed " : " "
-          } bg-blue-600 text-white p-2 rounded-lg`}
-          aria-label="go to last page"
-          onClick={() => setPageNumber(data?.info.pages)}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            width={24}
-            height={24}
+            Next{" "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              width={24}
+              height={24}
+            >
+              <path
+                stroke="#FFF"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="4"
+                d="M9 6l6 6-6 6"
+              ></path>
+            </svg>{" "}
+          </button>
+          <button
+            className={`${
+              data?.info.next === null ? " cursor-not-allowed " : " "
+            } bg-blue-600 text-white p-2 rounded-lg`}
+            aria-label="go to last page"
+            onClick={() => setPageNumber(data?.info.pages)}
           >
-            <path
-              stroke="#FFF"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 17l5-5-5-5m7 10l5-5-5-5"
-            ></path>
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              width={24}
+              height={24}
+            >
+              <path
+                stroke="#FFF"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 17l5-5-5-5m7 10l5-5-5-5"
+              ></path>
+            </svg>
+          </button>
+        </div>
       </section>
       <BackToTop />
       {isFetching && <div>Loading...</div>}
